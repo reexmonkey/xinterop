@@ -1,4 +1,3 @@
-// xinterop.infrastructure.concretes.h
 
 #pragma once
 
