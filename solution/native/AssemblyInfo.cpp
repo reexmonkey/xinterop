@@ -12,11 +12,11 @@ using namespace System::Security::Permissions;
 // associated with an assembly.
 //
 [assembly:AssemblyTitleAttribute(L"xinterop")];
-[assembly:AssemblyDescriptionAttribute(L"")];
+[assembly:AssemblyDescriptionAttribute(L"Provides extended interop features for c++ cli components")];
 [assembly:AssemblyConfigurationAttribute(L"")];
-[assembly:AssemblyCompanyAttribute(L"Microsoft")];
+[assembly:AssemblyCompanyAttribute(L"reexmonkey")];
 [assembly:AssemblyProductAttribute(L"xinterop")];
-[assembly:AssemblyCopyrightAttribute(L"Copyright (c) Microsoft 2016")];
+[assembly:AssemblyCopyrightAttribute(L"Copyright (c) reexmonkey 2015 - 2016")];
 [assembly:AssemblyTrademarkAttribute(L"")];
 [assembly:AssemblyCultureAttribute(L"")];
 
@@ -31,7 +31,7 @@ using namespace System::Security::Permissions;
 // You can specify all the value or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
-[assembly:AssemblyVersionAttribute("1.0.*")];
+//[assembly:AssemblyVersionAttribute("1.0.*")];
 
 [assembly:ComVisible(false)];
 

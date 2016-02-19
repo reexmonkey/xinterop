@@ -96,7 +96,7 @@ namespace reexmonkey
 				/// </summary>
 				/// <param name="ptr"></param>
 				/// <returns></returns>
-				static Object^ ToObject(IntPtr ptr);
+				static Object^ FromIntPtr(IntPtr ptr);
 			};
 		}
 	}

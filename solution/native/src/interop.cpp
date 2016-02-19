@@ -76,7 +76,7 @@ IntPtr InteropService::ToIntPtr(Object ^ object, GCHandle% handle)
 	return GCHandle::ToIntPtr(handle);
 }
 
-Object ^ InteropService::ToObject(IntPtr ptr)
+Object ^ InteropService::FromIntPtr(IntPtr ptr)
 {
 	GCHandle handle = GCHandle::FromIntPtr(ptr);
 	return ptr != IntPtr::Zero
