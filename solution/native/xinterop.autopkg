@@ -1,0 +1,98 @@
+configurations 
+{
+	Toolset 
+	{
+		key : "PlatformToolset";
+		choices: { v140, v120, v110, v100, v90, v80, v71, v70, v60, gcc };
+	};
+
+    Platform {
+        key : "Platform";
+        choices: { x86, x64, ARM, AnyCPU };
+        x86.aliases : { Win32, win32, ia32, 386 };
+        x64.aliases : { x64, amd64, em64t, intel64, x86-64, x86_64 };
+        ARM.aliases : { arm, woa };
+        AnyCPU.aliases : { anycpu, any };
+    };
+
+	    
+	Linkage {
+        choices : { dynamic, static, ltcg, sxs };
+        description = "Which version of the .lib file to link to this library";
+
+        ltcg.description = "Link Time Compiler Generation";
+        dynamic.description = "Dynamic Library (DLL)";
+        static.description = "Static";
+        sxs.description = "Side-by-Side";
+    };
+
+    CallingConvention {
+        // Only really applicable to x86
+        choices : { cdecl, stdcall, fastcall, thiscall, clrcall };
+        description = "Calling convention model to use (for x86 only)";
+        cdecl.description = "cdecl";
+        stdcall.description = "stdcall (Uncommon)";
+        fastcall.description = "fastcall (Rare)";
+        thiscall.description = "thiscall (Rare)";
+        clrcall.description = "clrcall (Rare)";
+
+        stdcall.restricted-to = "Win32";
+        fastcall.restricted-to = "Win32";
+        thiscall.restricted-to = "Win32";
+        clrcall.restricted-to = "Win32";
+    };
+}
+
+nuget 
+{
+   nuspec 
+   {
+      id = xinterop;
+      version : 1.0.0.0;
+      title: xinterop Native NuGet Package;
+      authors: {reexmonkey};
+      owners: {reexmonkey};
+      licenseUrl: "https://github.com/reexmonkey/xinterop/blob/master/LICENSE";
+      iconUrl: "http://www.techsmith.com/favicon.ico";
+      requireLicenseAcceptance:true;
+      summary:xinterop Native NuGet Package;
+      description: @"Binary that provides extended interop features for c++ cli components";
+      releaseNotes: "Initial release.";
+      projectUrl: "https://github.com/reexmonkey/xinterop";
+      copyright: Copyright (c) 2015-2016 reexmonkey. All rights reserved.;
+      tags: { c++, clr, cli, managed, interop, components };
+   };
+ 
+   files 
+   {
+      include: {include\*.h };
+ 
+      [x86,v140,release] 
+	  {
+        symbols:	{ bin\x86\v140\Release\*.pdb; bin\x86\v140\Release\*.xml; };
+		bin:		{ bin\x86\v140\Release\*.dll; };
+      };
+ 
+
+      [x86,v140,debug] 
+	  {
+        symbols:	{ bin\x86\v140\Debug\*.pdb; bin\x86\v140\Debug\*.xml; };
+		bin:		{ bin\x86\v140\Debug\*.dll; };
+
+      };
+
+	  [x64,v140,release] 
+	  {
+        symbols:	{ bin\x64\v140\Release\*.pdb; bin\x64\v140\Release\*.xml; };
+		bin:		{ bin\x64\v140\Release\*.dll; };
+      };
+ 
+
+      [x64,v140,debug] 
+	  {
+        symbols:	{ bin\x64\v140\Debug\*.pdb; bin\x64\v140\Debug\*.xml; };
+		bin:		{ bin\x64\v140\Debug\*.dll; };
+
+      };
+   };
+}
